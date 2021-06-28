@@ -9,6 +9,7 @@ service API {
   rpc Usage(stream google.protobuf.Empty) returns (stream UsageStats) {}
   rpc StartJob(Job) returns (stream JobResp) {}
   rpc StopJob(Job) returns (JobStopResp) {}
+  rpc BuildImage(ImageRequest) returns (ImageBuildResponse) {}
 }
 
 message HostInfo {
@@ -68,6 +69,7 @@ message Job {
   string sshURL = 20;
   string sshPrivateKey = 21;
   bool sshClone = 22;
+  string arch = 23;
 }
 
 message Command {
